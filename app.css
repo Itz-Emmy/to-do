@@ -225,6 +225,10 @@ input:checked ~ .bubble::after {
   background-color: var(--danger);
 }
 
+.to-do-item .to-do-content,
+.to-do-item .to-do-content input {
+  width: calc(100% - 0px);
+}
 .to-do-item.done .to-do-content input {
   text-decoration: line-through;
   color: var(--grey);
@@ -291,11 +295,18 @@ input:checked ~ .bubble::after {
   }
   .to-do-item .to-do-content input {
     font-size: 1rem;
-    max-width: calc(100% - 0px);
+    width: calc(100% - 0px);
     text-overflow: ellipsis;
   }
+  .to-do-item .to-do-content {
+    width: calc(100% - 70px);
+  }
 }
-
+@media (max-width: 386px) {
+  .to-do-item .to-do-content {
+    width: calc(100% - 150px);
+  }
+}
 @media (max-width: 376px) {
   .to-do-list .to-do-item {
     padding: 0.5rem;
@@ -304,9 +315,7 @@ input:checked ~ .bubble::after {
   .to-do-item label {
     margin-right: 0.5rem;
   }
-  .to-do-item .actions .edit {
-    margin-left: -4rem;
-  }
+
   .to-do-item .actions button {
     padding: 0.3rem;
   }
@@ -315,6 +324,6 @@ input:checked ~ .bubble::after {
     height: 15px;
   }
   .to-do-item .to-do-content input {
-    max-width: calc(100% - 70px);
+    width: calc(100% - 10px);
   }
 }
