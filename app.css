@@ -1,0 +1,323 @@
+:root {
+  --primary: #ea40a4;
+  --business: #3a82ee;
+  --personal: var(--primary);
+  --light: #eee;
+  --grey: #888;
+  --dark: #313154;
+  --danger: #ff5b57;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+  --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "montserrat", sans-serif;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: initial;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+}
+
+.container {
+  margin: 2rem auto;
+  border: 2px solid var(--grey);
+  max-width: 500px;
+
+  border-radius: 20px;
+  min-height: 90vh;
+}
+
+section {
+  margin-top: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  color: var(--grey);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.greeting .title {
+  display: flex;
+}
+
+.greeting .title input {
+  margin-left: 0.5rem;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.greeting .title,
+.greeting .title input {
+  color: var(--dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.create-to-do input[type="text"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: var(--dark);
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.create-to-do .options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.create-to-do .options label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+.bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--business);
+  box-shadow: var(--business-glow);
+}
+
+.bubble.personal {
+  border-color: var(--personal);
+  box-shadow: var(--personal-glow);
+}
+
+.bubble::after {
+  content: "";
+  display: block;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  background-color: var(--business);
+  border-radius: 50%;
+  box-shadow: var(--business-glow);
+  transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+  background-color: var(--personal);
+  box-shadow: var(--personal-glow);
+}
+
+input:checked ~ .bubble::after {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
+
+.create-to-do .options label p {
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+.create-to-do button {
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: #fff;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  box-shadow: var(--personal-glow);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.create-to-do button:hover {
+  opacity: 0.75;
+}
+
+.to-do-list .list {
+  margin: 1rem 0;
+}
+
+.to-do-list .to-do-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.to-do-item label {
+  display: block;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.to-do-item .to-do-content {
+  flex: 1 1 0%;
+}
+
+.to-do-item .to-do-content input {
+  color: var(--dark);
+  font-size: 1.125rem;
+}
+
+.to-do-item .actions {
+  display: flex;
+  align-items: center;
+}
+
+.to-do-item .actions button {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.to-do-item .actions button:hover {
+  opacity: 0.75;
+}
+
+.to-do-item .actions .edit {
+  margin-right: 0.5rem;
+  background-color: var(--primary);
+}
+.to-do-item .actions .delete {
+  background-color: var(--danger);
+}
+
+.to-do-item.done .to-do-content input {
+  text-decoration: line-through;
+  color: var(--grey);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(139, 150, 232, 0.4);
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  z-index: -10;
+}
+
+.modal-container {
+  background: var(--light);
+  border-radius: 0.5rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+  top: -150px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.open-modal {
+  visibility: visible;
+  z-index: 10;
+}
+
+.yes-no {
+  margin-top: 2rem;
+}
+
+.yes-no button {
+  font-size: 1.125rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  color: #fff;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  box-shadow: var(--personal-glow);
+  cursor: pointer;
+}
+
+@media (max-width: 426px) {
+  .container {
+    margin: 1rem 0.5rem;
+  }
+  .greeting .title,
+  .greeting .title input {
+    font-size: 1rem;
+  }
+  section {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+  .modal-container {
+    margin: 1rem;
+  }
+  .to-do-item .to-do-content input {
+    font-size: 1rem;
+    max-width: calc(100% - 0px);
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 376px) {
+  .to-do-list .to-do-item {
+    padding: 0.5rem;
+  }
+
+  .to-do-item label {
+    margin-right: 0.5rem;
+  }
+  .to-do-item .actions .edit {
+    margin-left: -4rem;
+  }
+  .to-do-item .actions button {
+    padding: 0.3rem;
+  }
+  .bubble {
+    width: 15px;
+    height: 15px;
+  }
+  .to-do-item .to-do-content input {
+    max-width: calc(100% - 70px);
+  }
+}

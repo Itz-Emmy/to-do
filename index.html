@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do App</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="greeting">
+        <h2 class="title">
+          What's up, <input type="text" id="name" placeholder="Name here" />
+        </h2>
+      </section>
+      <section class="create-to-do">
+        <h3>CREATE A TO-DO</h3>
+        <form id="new-to-do-form">
+          <h4>What's on your to-do list?</h4>
+          <input
+            type="text"
+            name="content"
+            id="content"
+            placeholder="e.g. Buy a new phone"
+          />
+
+          <h4>Pick a category</h4>
+          <div class="options">
+            <label>
+              <input
+                type="radio"
+                name="category"
+                id="category1"
+                value="business"
+              />
+              <span class="bubble business"></span>
+              <p>Business</p>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="category"
+                id="category2"
+                value="personal"
+              />
+              <span class="bubble personal"></span>
+              <p>Personal</p>
+            </label>
+          </div>
+
+          <button type="submit">Add To-Do</button>
+        </form>
+      </section>
+      <section class="to-do-list">
+        <h3>TO-DO LIST</h3>
+        <div class="list" id="to-do-list"></div>
+      </section>
+    </main>
+    <div class="modal-overlay">
+      <div class="modal-container">
+        <h3>Are you sure you want to delete this item?</h3>
+
+        <div class="yes-no">
+          <button id="yes">Yes</button>
+          <button id="no">No</button>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
