@@ -49,6 +49,7 @@ const showToDoList = () => {
     const edit = document.createElement("button");
     const deleteBtn = document.createElement("button");
     input.type = "checkbox";
+    input.setAttribute("autocomplete", "off");
     input.checked = todo.done;
     span.classList.add("bubble");
     if (todo.category == "personal") {
