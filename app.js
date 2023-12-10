@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
 const showToDoList = () => {
   const todoList = document.querySelector("#to-do-list");
   todoList.innerHTML = "";
-
+  todos.sort((a, b) => b.dateCreated - a.dateCreated);
   todos.forEach((todo) => {
     const todoItem = document.createElement("div");
     todoItem.classList.add("to-do-item");
