@@ -193,10 +193,6 @@ input:checked ~ .bubble::after {
   cursor: pointer;
 }
 
-.to-do-item .to-do-content {
-  flex: 1 1 0%;
-}
-
 .to-do-item .to-do-content input {
   color: var(--dark);
   font-size: 1.125rem;
@@ -205,6 +201,7 @@ input:checked ~ .bubble::after {
 .to-do-item .actions {
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 .to-do-item .actions button {
